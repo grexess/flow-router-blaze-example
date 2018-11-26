@@ -1,28 +1,27 @@
 <head>
-  <title>example</title>
+  <title>hxVoting Structure Test</title>
 </head>
 
-<template name="layout">
-  <a href="/post/post-1">post 1</a>
-  <a href="/post/post-2">post 2</a>
-  <a href="/post/post-3">post 3</a>
-  <a href="/">home</a>
-  <hr>
+<template name="App_body">
   {{> Template.dynamic template=main}}
 </template>
 
-<template name="post">
-  {{#if Template.subscriptionsReady}}
-    {{#if post}}
-      <div>Post: {{post.title}}</div>
-    {{else}}
-      <div>404: Not found</div>
-    {{/if}}
-  {{else}}
-    <div>Loading...</div>
-  {{/if}}
+<template name="tmpl_home">
+  <hr>
+  <div>Template "HOME"</div>
+  {{#if currentUser}}
+  //{{> Template.contentBlock}}
+  {{> tmpl_sub1}}
+{{else}}
+{{> tmpl_sub2}}
+{{/if}}
+<hr>
 </template>
 
-<template name="home">
-  <div>Home</div>
+<template name="tmpl_sub1">
+  <div>Template "SUB1"</div>
+</template>
+
+<template name="tmpl_sub2">
+  <div>Template "SUB2"</div>
 </template>
